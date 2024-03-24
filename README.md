@@ -20,6 +20,7 @@ To set up the project, follow these steps:
 
 ## Features
 - Updated all project libraries and resolved UI and library errors.
+- Data integration for both Light and Dark UI.
 - Utilized dynamic data integration from the provided API endpoint. The `axios` library was employed for data fetching.
 - Employed Redux Toolkit for efficient state management.
 - Implemented filtering and sorting according to assignment instructions, updating state in each component based on `sequence`, `forEducation`, `enabled`, etc.
