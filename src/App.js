@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeDark from "./pages/dark/Home";
-import Blogs from "./pages/dark/blogs";
+// import Blogs from "./pages/dark/blogs";
 import Works from "./pages/dark/works";
 import SingleProject from "./pages/dark/single-project";
 import HomeLight from "./pages/light/Home";
@@ -10,7 +10,7 @@ import LightBlogs from "./pages/light/blogs";
 import LightSingleBlog from "./pages/light/single-blog";
 import LightSingleProject from "./pages/light/single-project";
 import LightWorks from "./pages/light/works";
-import SingleBlog from "./pages/dark/single-blog";
+// import SingleBlog from "./pages/dark/single-blog";
 
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -27,7 +27,7 @@ function App() {
     const signal = controller.signal;
 
     fetchApiData();
- // Cleanup function to abort fetching when component unmounts
+    // Cleanup function to abort fetching when component unmounts
     return () => controller.abort();
   }, [dispatch]);
 
@@ -38,24 +38,32 @@ function App() {
       const response = await fetchDataFromApi();
       if (response.success) {
         const userData = response.user;
-         // Transform the user data according to requirements
+        // Transform the user data according to requirements
         const transformedUserData = {
           about: userData.about,
           id: userData._id,
           username: userData.username,
           email: userData.email,
           role: userData.role,
-          timeline: userData.timeline.filter(item => item.enabled), 
-          skills: userData.skills.filter(skill => skill.enabled).sort((a, b) => a.sequence - b.sequence), 
-          youtube: userData.youtube.filter(video => video.enabled), 
-          projects: userData.projects.filter(project => project.enabled).sort((a, b) => a.sequence - b.sequence), 
-          social_handles: userData.social_handles.filter(handle => handle.enabled),
-          services: userData.services.filter(service => service.enabled), 
-          testimonials: userData.testimonials.filter(testimonial => testimonial.enabled).sort((a, b) => a.sequence - b.sequence),
+          timeline: userData.timeline.filter((item) => item.enabled),
+          skills: userData.skills
+            .filter((skill) => skill.enabled)
+            .sort((a, b) => a.sequence - b.sequence),
+          youtube: userData.youtube.filter((video) => video.enabled),
+          projects: userData.projects
+            .filter((project) => project.enabled)
+            .sort((a, b) => a.sequence - b.sequence),
+          social_handles: userData.social_handles.filter(
+            (handle) => handle.enabled
+          ),
+          services: userData.services.filter((service) => service.enabled),
+          testimonials: userData.testimonials
+            .filter((testimonial) => testimonial.enabled)
+            .sort((a, b) => a.sequence - b.sequence),
           createdAt: userData.createdAt,
           updatedAt: userData.updatedAt,
         };
-// Dispatch action to set user data in Redux store
+        // Dispatch action to set user data in Redux store
         dispatch(setUserData(transformedUserData));
       } else {
         throw new Error("Failed to fetch data");

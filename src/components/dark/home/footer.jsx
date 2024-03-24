@@ -10,7 +10,7 @@ function Footer() {
               <p className="fz-13">
                 © 2024 designed by{' '}
                 <span className="underline main-color">
-                  <a href='' target="_blank">
+                  <a href='/dark' target="_blank">
                     Pankaj
                   </a>
                 </span>

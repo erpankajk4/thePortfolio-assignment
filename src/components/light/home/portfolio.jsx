@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../../ldata/home/works.json";
+// import data from "../../../ldata/home/works.json";
 import { useSelector } from "react-redux";
 import { projects } from "../../../store/userSlice";
 function Portfolio() {

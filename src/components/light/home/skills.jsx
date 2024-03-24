@@ -1,6 +1,6 @@
 import React from 'react';
-import data2 from '../../../data/skills2.json';
-import data from '../../../data/skills.json';
+// import data2 from '../../../data/skills2.json';
+// import data from '../../../data/skills.json';
 import { useSelector } from "react-redux";
 import { skills } from '../../../store/userSlice';
 function Skills() {

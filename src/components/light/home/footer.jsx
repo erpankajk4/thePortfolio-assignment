@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Footer() {
   return (
@@ -8,9 +8,9 @@ function Footer() {
           <div className="col-12">
             <div className="text-center">
               <p className="fz-13">
-                © 2024 designed by{' '}
+                © 2024 designed by{" "}
                 <span className="underline main-color">
-                  <a href='' target="_blank">
+                  <a href="#" target="_blank">
                     Pankaj
                   </a>
                 </span>
