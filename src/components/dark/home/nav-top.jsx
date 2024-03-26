@@ -5,25 +5,6 @@ import { socialHandles, email } from "../../../store/userSlice";
 function NavTop() {
   const socialLinks = useSelector(socialHandles);
   const emailAddress = useSelector(email);
-
-  useEffect(() => {
-    const handleNavButtonClick = () => {
-      $(".navbar").slideToggle().toggleClass("active");
-    };
-
-    const handleNavItemCLick = () => {
-      $(".navbar.active").slideUp().removeClass("active");
-    };
-
-    $(".nav-top").on("click", ".nav-butn", handleNavButtonClick);
-    $(".navbar").on("click", ".nav-item", handleNavItemCLick);
-
-    // Cleanup
-    return () => {
-      $(".nav-top").off("click", ".nav-butn", handleNavButtonClick);
-      $(".navbar").off("click", ".nav-item", handleNavItemCLick);
-    };
-  }, []);
   
   return (
     <div className="nav-top pt-30 pb-30">
