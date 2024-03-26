@@ -7,7 +7,7 @@ import Works from "./pages/dark/works";
 import SingleProject from "./pages/dark/single-project";
 import HomeLight from "./pages/light/Home";
 import LightBlogs from "./pages/light/blogs";
-import LightSingleBlog from "./pages/light/single-blog";
+// import LightSingleBlog from "./pages/light/single-blog";
 import LightSingleProject from "./pages/light/single-project";
 import LightWorks from "./pages/light/works";
 // import SingleBlog from "./pages/dark/single-blog";

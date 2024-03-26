@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../../../data/blogs.json";
+// import data from "../../../data/blogs.json";
 import { useSelector } from "react-redux";
 import { projects } from "../../../store/userSlice";
 

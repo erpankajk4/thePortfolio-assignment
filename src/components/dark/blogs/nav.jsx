@@ -50,6 +50,11 @@ function Nav() {
                         <span>Timeline</span>
                       </a>
                     </li>
+                    <li className="nav-item">
+                      <a href="/dark#blog">
+                        <span>Projects</span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </div>

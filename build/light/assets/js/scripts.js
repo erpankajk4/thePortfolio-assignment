@@ -619,15 +619,15 @@ $(function () {
     tl.from(
         ".nav-top",
         {
-            y: 200,
+            y: 0,
         },
         "-=1.5"
     );
     tl.from(
         ".nav-top .container",
         {
-            y: 40,
-            opacity: 0,
+            y: 0,
+            opacity: 1,
             delay: 0.3,
         },
         "-=1.5"

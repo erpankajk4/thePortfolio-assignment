@@ -7,10 +7,10 @@ function Project() {
         <div className="col-lg-10">
           <div className="caption text-center">
             <div className="gat">
-              <a href="#0">
+              <a href="/light-m">
                 <span>Web Design</span>
               </a>
-              <a href="#0">
+              <a href="light-m">
                 <span>Envato</span>
               </a>
             </div>

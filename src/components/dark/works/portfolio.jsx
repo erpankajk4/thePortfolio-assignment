@@ -16,7 +16,7 @@ function Portfolio() {
         <div className="row">
           {projectsArray?.map((item, index) => (
             <div key={index} className="col-lg-6 items">
-            <div className="item mt-50 wow fadeInUp" data-wow-delay=".2s">
+            <div className="item mt-50">
               <div className="img">
                 <a href={`/project/${item?._id}`}>
                   <img src={item?.image?.url} alt="" />

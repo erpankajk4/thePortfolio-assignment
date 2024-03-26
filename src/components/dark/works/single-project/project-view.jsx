@@ -21,13 +21,13 @@ function ProjectView({ projectId }) {
   const prevProjectIndex =
     (currentProjectIndex - 1 + projectsArray.length) % projectsArray.length;
 
-  const goToNextProject = () => {
-    setCurrentProjectIndex(nextProjectIndex);
-  };
+  // const goToNextProject = () => {
+  //   setCurrentProjectIndex(nextProjectIndex);
+  // };
 
-  const goToPrevProject = () => {
-    setCurrentProjectIndex(prevProjectIndex);
-  };
+  // const goToPrevProject = () => {
+  //   setCurrentProjectIndex(prevProjectIndex);
+  // };
 
   const project = projectsArray[currentProjectIndex];
 
