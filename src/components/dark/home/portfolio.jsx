@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { projects } from "../../../store/userSlice";
 function Portfolio() {
   const projectsArray = useSelector(projects);
+  
   return (
     <div className="sec-box portfolio section-padding" id="blog">
       <div className="sec-head mb-30">
@@ -42,24 +43,24 @@ function Portfolio() {
             <div key={index} className="col-lg-6 items">
               <div className="item mt-50 wow fadeInUp" data-wow-delay=".2s">
                 <div className="img">
-                  <a href={item.liveurl}>
-                    <img src={item.image.url} alt="" />
+                  <a href={`/project/${item?._id}`}>
+                    <img src={item?.image?.url} alt="" />
                   </a>
                 </div>
                 <div className="cont mt-30 d-flex align-items-center">
                   <div>
-                    {item.techStack.map((tech, index) => (
+                    {item?.techStack?.map((tech, index) => (
                       <span key={index} className="tag">
                         {tech}
                       </span>
                     ))}
                     <h6 className="line-height-1">
-                      <a href={item.liveurl}>{item.title}</a>
+                      <a href={`/project/${item?._id}`}>{item?.title}</a>
                     </h6>
                   </div>
                   <div className="ml-auto">
                     <div className="arrow">
-                      <a href={item.githuburl}>
+                      <a href={`/project/${item?._id}`}>
                         {/* <svg
                           className="arrow-right"
                           xmlns="http://www.w3.org/2000/svg"

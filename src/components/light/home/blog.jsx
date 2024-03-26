@@ -1,21 +1,25 @@
-import React from 'react';
-import data from '../../../ldata/home/blogs.json';
-function Blog() {
+import React from "react";
+import data from "../../../data/blogs.json";
+import { useSelector } from "react-redux";
+import { projects } from "../../../store/userSlice";
+
+function Project() {
+  const projectsArray = useSelector(projects);
   return (
     <div className="sec-box blog section-padding bord-thin-top" id="blog">
       <div className="sec-head mb-80">
         <div className="row">
           <div className="col-lg-6 wow fadeInUp">
-            <h6 className="sub-title opacity-7 mb-15">Our Blog</h6>
+            <h6 className="sub-title opacity-7 mb-15">My Projects</h6>
             <h3>
-              Latest News & <span className="main-color">Blog</span>
+              Checkout My <span className="main-color">Recent Projects</span>
             </h3>
           </div>
           <div className="col-lg-6 valign">
             <div className="go-more full-width d-flex justify-content-end">
-              <a href="/l-blogs" className="d-flex">
+              <a href="/lAllProjects" className="d-flex">
                 <span>
-                  View All Posts{' '}
+                  View All Projects{" "}
                   <svg
                     className="arrow-right"
                     xmlns="http://www.w3.org/2000/svg"
@@ -32,31 +36,32 @@ function Blog() {
         </div>
       </div>
       <div className="row">
-        {data?.slice(0, 3).map((item, index) => (
+        {projectsArray?.slice(0, 3)?.map((item, index) => (
           <div key={index} className="col-lg-4">
             <div className="item md-mb30 wow fadeIn" data-wow-delay=".2s">
               <div className="img">
-                <img src={item.photo} alt="" />
+                <img src={item.image.url} alt="" />
               </div>
               <div className="box">
                 <div className="cont">
-                  <span className="date">
-                    <i className="fas fa-calendar-alt mr-10 main-color"></i> 6 ,
-                    Aug 2022
-                  </span>
+                  {item?.techStack?.map((tech, index) => (
+                    <span key={index} className="date" style={{marginRight: '10px'}}>
+                      {tech}
+                    </span>
+                  ))}
                   <h5>
-                    <a href={item.link}>{item.title}</a>
+                    <a href={`/lproject/${item._id}`}>{item.title}</a>
                   </h5>
                 </div>
                 <div className="info d-flex align-items-center">
-                  <div>
+                  {/* <div>
                     <span>
                       <i className="fas fa-comments fz-12 mr-5"></i> 2 Comments
                     </span>
-                  </div>
+                  </div> */}
                   <div className="ml-auto">
-                    <a href={item.link}>
-                      Read More{' '}
+                    <a href={`/l-project/${item._id}`}>
+                      Know More{" "}
                       <svg
                         className="ml-5"
                         width="18"
@@ -82,4 +87,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default Project;

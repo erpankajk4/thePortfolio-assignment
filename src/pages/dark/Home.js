@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import ProgressScroll from '../../components/Common/ProgressScroll';
 import Cursor from '../../components/Common/cusor';
 import LoadingScreen from '../../components/Common/loader';
-// import Blog from '../../components/dark/home/blog';
+import Project from '../../components/dark/home/blog';
 import ContactUs from '../../components/dark/contact/ContactUs';
 import Info from '../../components/dark/contact/info';
 import Footer from '../../components/dark/home/footer';
@@ -26,7 +26,7 @@ function HomeDark() {
   return (
     <div>
       <Helmet>
-      <title>{aboutData?.name ? `${aboutData.name} | PortFolio` : "PortFolio"}</title>
+      <title>{aboutData?.name ? `${aboutData?.name} | PortFolio` : "PortFolio"}</title>
         <link rel="icon" href="/assets/imgs/favicon.ico" />
         <link rel="shortcut icon" href="/assets/imgs/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="/assets/css/plugins.css" />
@@ -51,7 +51,7 @@ function HomeDark() {
             <Info />
             {/* Timeline- Education & Experience  */}
             <Timeline />
-            {/* <Blog /> */}
+            <Project />
           </section>
         </main>
         <Footer />

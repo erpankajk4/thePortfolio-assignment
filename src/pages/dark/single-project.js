@@ -1,15 +1,24 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import ProgressScroll from '../../components/Common/ProgressScroll';
-import Cursor from '../../components/Common/cusor';
-import LoadingScreen from '../../components/Common/loader';
-import ContactUs from '../../components/dark/contact/ContactUs';
-import Nav from '../../components/dark/blogs/nav';
-import ProjectView from '../../components/dark/works/single-project/project-view';
-import Footer from '../../components/dark/home/footer';
-import Lines from '../../components/Common/Lines';
+import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import ProgressScroll from "../../components/Common/ProgressScroll";
+import Cursor from "../../components/Common/cusor";
+import LoadingScreen from "../../components/Common/loader";
+import ContactUs from "../../components/dark/contact/ContactUs";
+import Nav from "../../components/dark/blogs/nav";
+import ProjectView from "../../components/dark/works/single-project/project-view";
+import Footer from "../../components/dark/home/footer";
+import Lines from "../../components/Common/Lines";
+import { useParams } from "react-router-dom";
 
 function SingleProject() {
+  const { projectId } = useParams();
+  const [project_Id, setproject_Id] = useState("");
+  // console.log(projectId);
+
+  useEffect(() => {
+    setproject_Id(projectId);
+  }, [projectId]);
+
   return (
     <div>
       <Helmet>
@@ -26,7 +35,7 @@ function SingleProject() {
       <ProgressScroll />
       <Nav />
       <main className="container">
-        <ProjectView />
+        <ProjectView projectId={project_Id} />
       </main>
       <Footer />
       <script

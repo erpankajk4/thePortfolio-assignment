@@ -5,7 +5,7 @@ import Cursor from '../../components/Common/cusor';
 import LoadingScreen from '../../components/Common/loader';
 import ContactUs from '../../components/dark/contact/ContactUs';
 import Nav from '../../components/dark/blogs/nav';
-import Blog from '../../components/dark/blogs/blog';
+// import Blog from '../../components/dark/blogs/blog';
 import Posts from '../../components/dark/blogs/posts';
 import Footer from '../../components/dark/home/footer';
 
@@ -28,7 +28,7 @@ function Blogs() {
       <ProgressScroll />
       <Nav />
       <main className="container">
-        <Blog />
+        {/* <Blog /> */}
         <Posts />
       </main>
       <Footer />

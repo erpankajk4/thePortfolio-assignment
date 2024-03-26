@@ -1,42 +1,46 @@
 import React from 'react';
-import data from '../../../ldata/home/blogs.json';
+// import data from '../../../data/blogs.json';
+import { useSelector } from "react-redux";
+import { projects } from "../../../store/userSlice";
 
 function Posts() {
+  const projectsArray = useSelector(projects);
   return (
     <section className="sec-box blog section-padding pt-0">
       <div className="row">
         <div className="col-12">
           <div className="sec-head bord-thin-bottom pb-20 mb-80">
-            <h4 className="sub-title fz-28">All Posts</h4>
+            <h4 className="sub-title fz-28">All My Project Work</h4>
           </div>
         </div>
       </div>
       <div className="row md-marg">
-        {data.map((item, index) => (
+      {projectsArray?.map((item, index) => (
           <div key={index} className="col-lg-4">
-            <div className="item md-mb30 mb-30">
+            <div className="item md-mb30 wow fadeIn" data-wow-delay=".2s">
               <div className="img">
-                <img src={item.photo} alt="" />
+                <img src={item?.image?.url} alt="" />
               </div>
               <div className="box">
                 <div className="cont">
-                  <span className="date">
-                    <i className="fas fa-calendar-alt mr-10 main-color"></i> 6 ,
-                    Aug 2022
-                  </span>
+                  {item?.techStack?.map((tech, index) => (
+                    <span key={index} className="date" style={{marginRight: '10px'}}>
+                      {tech}
+                    </span>
+                  ))}
                   <h5>
-                    <a href={item.link}>{item.title}</a>
+                    <a href={`/lproject/${item?._id}`}>{item?.title}</a>
                   </h5>
                 </div>
                 <div className="info d-flex align-items-center">
-                  <div>
+                  {/* <div>
                     <span>
                       <i className="fas fa-comments fz-12 mr-5"></i> 2 Comments
                     </span>
-                  </div>
+                  </div> */}
                   <div className="ml-auto">
-                    <a href={item.link}>
-                      Read More{' '}
+                    <a href={`/lproject/${item?._id}`}>
+                      Know More{" "}
                       <svg
                         className="ml-5"
                         width="18"

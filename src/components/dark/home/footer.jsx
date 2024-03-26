@@ -11,7 +11,7 @@ function Footer() {
                 © 2024 designed by{' '}
                 <span className="underline main-color">
                   <a href='/dark' target="_blank">
-                    Pankaj
+                    Gavi
                   </a>
                 </span>
               </p>

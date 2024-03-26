@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeDark from "./pages/dark/Home";
-// import Blogs from "./pages/dark/blogs";
+import Blogs from "./pages/dark/blogs";
 import Works from "./pages/dark/works";
 import SingleProject from "./pages/dark/single-project";
 import HomeLight from "./pages/light/Home";
@@ -81,14 +81,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/dark" element={<HomeDark />} />
         <Route path="/light-m" element={<HomeLight />} />
-        {/* <Route path="/blogs" element={<Blogs />} /> */}
+        <Route path="/allProjects" element={<Blogs />} />
         {/* <Route path="/single-blog" element={<SingleBlog />} /> */}
         <Route path="/works" element={<Works />} />
         <Route path="/l-works" element={<LightWorks />} />
-        <Route path="/single-project" element={<SingleProject />} />
-        <Route path="/l-blogs" element={<LightBlogs />} />
-        <Route path="/l-single-blog" element={<LightSingleBlog />} />
-        <Route path="/l-single-project" element={<LightSingleProject />} />
+        <Route path="/project/:projectId" element={<SingleProject />} />
+        <Route path="/lAllProjects" element={<LightBlogs />} />
+        {/* <Route path="/l-single-blog" element={<LightSingleBlog />} /> */}
+        <Route path="/lproject/:projectId" element={<LightSingleProject />} />
       </Routes>
     </Router>
   );

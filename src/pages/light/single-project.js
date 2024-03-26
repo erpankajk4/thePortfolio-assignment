@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import ProgressScroll from '../../components/Common/ProgressScroll';
 import Cursor from '../../components/Common/cusor';
@@ -8,8 +8,16 @@ import Nav from '../../components/light/blogs/nav';
 import ProjectView from '../../components/light/works/single-project/project-view';
 import Footer from '../../components/light/home/footer';
 import Lines from '../../components/Common/Lines';
+import { useParams } from 'react-router-dom';
 
 function LightSingleProject() {
+  const { projectId } = useParams();
+  const [project_Id, setproject_Id] = useState("");
+  // console.log(projectId);
+
+  useEffect(() => {
+    setproject_Id(projectId);
+  }, [projectId]);
   return (
     <div>
       <Helmet>
@@ -34,7 +42,7 @@ function LightSingleProject() {
       <ProgressScroll />
       <Nav />
       <main className="container">
-        <ProjectView />
+      <ProjectView projectId={project_Id} />
       </main>
       <Footer />
       <script

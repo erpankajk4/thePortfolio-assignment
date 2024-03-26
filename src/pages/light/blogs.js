@@ -5,7 +5,7 @@ import Cursor from '../../components/Common/cusor';
 import LoadingScreen from '../../components/Common/loader';
 import ContactUs from '../../components/light/contact/ContactUs';
 import Nav from '../../components/light/blogs/nav';
-import Blog from '../../components/light/blogs/blog';
+// import Blog from '../../components/light/blogs/blog';
 import Posts from '../../components/light/blogs/posts';
 import Footer from '../../components/light/home/footer';
 import Lines from '../../components/Common/Lines';
@@ -35,7 +35,7 @@ function LightBlogs() {
       <ProgressScroll />
       <Nav />
       <main className="container">
-        <Blog />
+        {/* <Blog /> */}
         <Posts />
       </main>
       <Footer />

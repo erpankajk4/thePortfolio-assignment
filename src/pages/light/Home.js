@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import ProgressScroll from "../../components/Common/ProgressScroll";
 import Cursor from "../../components/Common/cusor";
 import LoadingScreen from "../../components/Common/loader";
-// import Blog from "../../components/light/home/blog";
+import Project from "../../components/light/home/blog";
 import ContactUs from "../../components/light/contact/ContactUs";
 import Info from "../../components/light/contact/info";
 import Footer from "../../components/light/home/footer";
@@ -16,7 +16,7 @@ import Services from "../../components/light/home/services";
 import Skills from "../../components/light/home/skills";
 import Testimonials from "../../components/light/home/testimonials";
 import Lines from "../../components/Common/Lines";
-import Timeline from "../../components/dark/home/timeline";
+import Timeline from "../../components/light/home/timeline";
 function HomeLight() {
   return (
     <div>
@@ -54,7 +54,7 @@ function HomeLight() {
             <Info />
             {/* Timeline- Education & Experience  */}
             <Timeline />
-            {/* <Blog /> */}
+            <Project />
           </section>
         </main>
         <Footer />

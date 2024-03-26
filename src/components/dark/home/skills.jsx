@@ -1,31 +1,15 @@
-import React, { useEffect } from "react";
+import React from 'react';
+// import data2 from '../../../data/skills2.json';
+// import data from '../../../data/skills.json';
 import { useSelector } from "react-redux";
-import { skills } from "../../../store/userSlice";
-
+import { skills } from '../../../store/userSlice';
 function Skills() {
   const skillsArray = useSelector(skills);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      document.querySelectorAll('.skill-progress .progres').forEach((element) => {
-        const bottom_of_object = element.offsetTop + element.offsetHeight;
-        const bottom_of_window = window.scrollY + window.innerHeight;
-        const myVal = element.getAttribute('data-value');
-
-        if (bottom_of_window > bottom_of_object) {
-          element.style.width = myVal;
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <div className="sec-box skills section-padding bord-thin-bottom" id="skills">
+    <div
+      className="sec-box skills section-padding bord-thin-bottom"
+      id="skills"
+    >
       <div className="row">
         <div className="col-lg-4 valign">
           <div className="sec-head md-mb80 wow fadeIn">
@@ -38,35 +22,55 @@ function Skills() {
         <div className="col-lg-8">
           <div className="row">
             {skillsArray.map((skill, index) => {
-              const skillPercentage = `${skill.percentage}%`;
-              return (
-                <div key={index} className="col-md-6">
-                  <div className="item mb-30">
-                    <div className="d-flex align-items-center mb-30">
-                      <div className="mr-30">
-                        <div className="img icon-img-40">
-                          <img src={skill.image.url} alt="" />
-                        </div>
-                      </div>
-                      <div>
-                        <h6 className="fz-18">{skill.name}</h6>
+                let skillPercentage = skill.percentage + "%";
+             return <div key={index} className="col-md-6">
+                <div className="item mb-30">
+                  <div className="d-flex align-items-center mb-30">
+                    <div className="mr-30">
+                      <div className="img icon-img-40">
+                        <img src={skill.image.url} alt="" />
                       </div>
                     </div>
-                    <div className="skill-progress">
-                      <span
-                        className="progres"
-                        data-value={skillPercentage}
-                        style={{ width: skillPercentage }}
-                      ></span>
+                    <div>
+                      <h6 className="fz-18">{skill.name}</h6>
                     </div>
-                    <span className="value">{skillPercentage}</span>
                   </div>
+                  <div className="skill-progress">
+                    <span className="progres" data-value={skillPercentage}></span>
+                  </div>
+                  <span className="value">{skillPercentage}</span>
                 </div>
-              );
-            })}
+              </div>
+})}
           </div>
         </div>
       </div>
+      {/* <div className="awards mt-100">
+        <div className="row md-marg">
+          {data2.map((item, index) => (
+            <div key={index} className="col-lg-4">
+              <div
+                className="award-item sub-bg md-mb30 wow fadeInUp"
+                data-wow-delay=".2s"
+              >
+                <div className="d-flex">
+                  <div>
+                    <span>01</span>
+                  </div>
+                  <div className="ml-auto">
+                    <span>{item.year}</span>
+                  </div>
+                </div>
+                <div className="img icon-img-100 mt-80 mb-30">
+                  <img src={item.photo} alt="" />
+                </div>
+                <h6>02x Designer Award</h6>
+                <span className="sub-title main-color mt-10">{item.title}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div> */}
     </div>
   );
 }
