@@ -1,8 +1,10 @@
 import React from "react";
 // import data from "../../../data/services.json";
 import { useSelector } from "react-redux";
-import { services } from "../../../store/userSlice";
+import { services, mode } from "../../../store/userSlice";
+
 function Services() {
+  const selectedMode = useSelector(mode);
   const servicesArray = useSelector(services);
   return (
     <div
@@ -27,11 +29,23 @@ function Services() {
             <div key={service._id} className="col-md-6">
               <div className="item mb-40 wow fadeIn" data-wow-delay=".2s">
                 <span className="icon-img-70 mb-30 opacity-7">
-                  <img src={`/assets/imgs/serv-img/${imageCount}.png`} alt="" />
+                  {selectedMode === "light" ? (
+                    <img
+                      src={`/light/assets/imgs/serv-img/${imageCount}.png`}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      src={`/assets/imgs/serv-img/${imageCount}.png`}
+                      alt=""
+                    />
+                  )}
                 </span>
                 <h6 className="text-u ls1 mb-15">{service.name}</h6>
                 <p>{service.desc}</p>
-                <h6><strong>Charge:</strong> {service.charge}</h6>
+                <h6>
+                  <strong>Charge:</strong> {service.charge}
+                </h6>
                 <div className="bord-color"></div>
               </div>
             </div>

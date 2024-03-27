@@ -1,11 +1,11 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 
-import { numberToWords } from '../../../utils/numberToWords';
+import { numberToWords } from "../../../utils/numberToWords";
 import { useSelector } from "react-redux";
-import { about, testimonials } from '../../../store/userSlice';
-
+import { about, testimonials } from "../../../store/userSlice";
+import { mode } from "../../../store/userSlice";
 const swiperOptions = {
   modules: [Navigation],
   slidesPerView: 1,
@@ -13,12 +13,13 @@ const swiperOptions = {
   speed: 1000,
 
   navigation: {
-    nextEl: '.testimonials .swiper-button-next',
-    prevEl: '.testimonials .swiper-button-prev',
+    nextEl: ".testimonials .swiper-button-next",
+    prevEl: ".testimonials .swiper-button-prev",
   },
 };
 
 function Testimonials() {
+  const selectedMode = useSelector(mode);
   const aboutData = useSelector(about);
   const testimonialsArray = useSelector(testimonials);
   const totalClients = numberToWords(aboutData.some_total).toUpperCase();
@@ -30,7 +31,8 @@ function Testimonials() {
             <div className="col-lg-7">
               <h6 className="sub-title opacity-7 mb-15">Testimonials</h6>
               <h3>
-                Trusted by <span className="main-color">{totalClients}+ </span> Clients
+                Trusted by <span className="main-color">{totalClients}+ </span>{" "}
+                Clients
               </h3>
             </div>
           </div>
@@ -44,53 +46,57 @@ function Testimonials() {
                 className="swiper-container"
                 {...swiperOptions}
               >
-                {testimonialsArray.map( t =>(
-                <SwiperSlide style={{ height: '400px' }} key={t._id}>
-                <div className="item ">
-                  <div className="icon-img-60 mr-60">
-                    <img src="/assets/imgs/svg-assets/quote.png" alt="" />
-                  </div>
+                {testimonialsArray.map((t) => (
+                  <SwiperSlide style={{ height: "400px" }} key={t._id}>
+                    <div className="item ">
+                      <div className="icon-img-60 mr-60">
+                        <img
+                          src={
+                            selectedMode === "light"
+                              ? "/assets/imgs/svg-assets/quote1.png"
+                              : "/assets/imgs/svg-assets/quote.png"
+                          }
+                          alt=""
+                        />
+                      </div>
 
-                  <div>
-                    <div className="cont mb-30">
-                      <div className="d-flex align-items-center">
-                        <div className="rate-stars fz-12">
-                          <span className="rate main-color">
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                          </span>
-                          {/* <span className="fz-12 opacity-7 ml-10">
+                      <div>
+                        <div className="cont mb-30">
+                          <div className="d-flex align-items-center">
+                            <div className="rate-stars fz-12">
+                              <span className="rate main-color">
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                                <i className="fas fa-star"></i>
+                              </span>
+                              {/* <span className="fz-12 opacity-7 ml-10">
                             (71 Reviews)
                           </span> */}
+                            </div>
+                          </div>
+                          <p className="fz-20 mt-15">{t.review}</p>
+                        </div>
+                        <div className="d-flex align-items-center">
+                          <div>
+                            <div className="img">
+                              <img src={t.image?.url} alt="" />
+                            </div>
+                          </div>
+                          <div className="ml-30">
+                            <div className="info">
+                              <h6 className="main-color">{t.name}</h6>
+                              <span className="fz-13 mt-10 opacity-8">
+                                {t.position}
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <p className="fz-20 mt-15">
-                        {t.review}
-                      </p>
                     </div>
-                    <div className="d-flex align-items-center">
-                      <div>
-                        <div className="img">
-                          <img src={t.image?.url} alt="" />
-                        </div>
-                      </div>
-                      <div className="ml-30">
-                        <div className="info">
-                          <h6 className="main-color">{t.name}</h6>
-                          <span className="fz-13 mt-10 opacity-8">
-                            {t.position}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
+                  </SwiperSlide>
                 ))}
-
               </Swiper>
               {/* </div> */}
             </div>
@@ -104,7 +110,14 @@ function Testimonials() {
                 aria-label="Previous slide"
                 aria-disabled="true"
               >
-                <span className="left">
+                <span
+                  className="left"
+                  style={
+                    selectedMode === "light"
+                      ? { backgroundColor: "#777777" }
+                      : {}
+                  }
+                >
                   <svg
                     width="20"
                     height="20"
@@ -126,7 +139,11 @@ function Testimonials() {
                 aria-label="Next slide"
                 aria-disabled="false"
               >
-                <span className="right">
+                <span className="right" style={
+                    selectedMode === "light"
+                      ? { backgroundColor: "#777777" }
+                      : {}
+                  }>
                   <svg
                     width="20"
                     height="20"

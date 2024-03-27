@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 
+import { useSelector } from "react-redux";
+import { about, mode } from '../../store/userSlice';
+
 function LoadingScreen() {
+  const selectedMode = useSelector(mode);
   useEffect(() => {
     const interval = setInterval(() => {
       if (typeof gsap !== "undefined") {

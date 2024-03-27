@@ -17,6 +17,7 @@ const initialState = {
   updatedAt:"",
   loading: false,
   error: null,
+  mode: localStorage.getItem('mode') || "dark",
 };
 
 const userSlice = createSlice({
@@ -37,10 +38,14 @@ const userSlice = createSlice({
     setError: (state, action) => {
       state.error = action.payload;
     },
+    setMode: (state, action) => {
+      state.mode = action.payload;
+      localStorage.setItem('mode', action.payload);
+    },
   },
 });
 
-export const { setUserData, setLoading, setError } = userSlice.actions;
+export const { setUserData, setLoading, setError, setMode } = userSlice.actions;
 
 // Exporting selectors
 export const UserData = state => state.user;
@@ -59,5 +64,6 @@ export const createdAt = state => state.user.createdAt;
 export const updatedAt = state => state.user.updatedAt;
 export const loading = state => state.user.loading;
 export const error = state => state.user.error;
+export const mode = state => state.user.mode;
 
 export default userSlice.reducer;

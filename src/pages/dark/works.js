@@ -10,17 +10,19 @@ import Footer from '../../components/dark/home/footer';
 import Lines from '../../components/Common/Lines';
 
 import { useSelector } from "react-redux";
-import { about } from '../../store/userSlice';
+import { about, mode } from '../../store/userSlice';
+
 function Works() {
   const aboutData = useSelector(about);
+  const selectedMode = useSelector(mode);
   return (
     <div>
       <Helmet>
-      <title>{aboutData?.name ? `${aboutData.name} | PortFolio` : "PortFolio"}</title>
-        <link rel="icon" href="/assets/imgs/favicon.ico" />
-        <link rel="shortcut icon" href="/assets/imgs/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/plugins.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+        <title>{aboutData?.name ? `${aboutData?.name} | PortFolio` : "PortFolio"}</title>
+        <link rel="icon" href={`/${selectedMode === 'dark' ? 'assets/imgs/favicon.ico' : 'light/assets/imgs/favicon.ico'}`} />
+        <link rel="shortcut icon" href={`/${selectedMode === 'dark' ? 'assets/imgs/favicon.ico' : 'light/assets/imgs/favicon.ico'}`} />
+        <link rel="stylesheet" type="text/css" href={`/${selectedMode === 'dark' ? 'assets/css/plugins.css' : 'light/assets/css/plugins.css'}`} />
+        <link rel="stylesheet" type="text/css" href={`/${selectedMode === 'dark' ? 'assets/css/style.css' : 'light/assets/css/style.css'}`} />
       </Helmet>
       <Cursor />
       <ContactUs />

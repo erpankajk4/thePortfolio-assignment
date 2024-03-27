@@ -24,16 +24,8 @@ function HomeLight() {
         <title>Gavi - Light</title>
         <link rel="icon" href="/light/assets/imgs/favicon.ico" />
         <link rel="shortcut icon" href="/light/assets/imgs/favicon.ico" />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="/light/assets/css/plugins.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="/light/assets/css/style.css"
-        />
+        <link rel="stylesheet" type="text/css" href="/light/assets/css/plugins.css" />
+        <link rel="stylesheet" type="text/css" href="/light/assets/css/style.css" />
       </Helmet>
       <Cursor />
       <ContactUs />

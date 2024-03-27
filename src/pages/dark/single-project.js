@@ -10,9 +10,15 @@ import Footer from "../../components/dark/home/footer";
 import Lines from "../../components/Common/Lines";
 import { useParams } from "react-router-dom";
 
+
+import { useSelector } from "react-redux";
+import { about, mode } from '../../store/userSlice';
+
 function SingleProject() {
   const { projectId } = useParams();
   const [project_Id, setproject_Id] = useState("");
+  const aboutData = useSelector(about);
+  const selectedMode = useSelector(mode);
   // console.log(projectId);
 
   useEffect(() => {
@@ -22,11 +28,11 @@ function SingleProject() {
   return (
     <div>
       <Helmet>
-        <title>Gavi - Dark</title>
-        <link rel="icon" href="/assets/imgs/favicon.ico" />
-        <link rel="shortcut icon" href="/assets/imgs/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/plugins.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+        <title>{aboutData?.name ? `${aboutData?.name} | PortFolio` : "PortFolio"}</title>
+        <link rel="icon" href={`/${selectedMode === 'dark' ? 'assets/imgs/favicon.ico' : 'light/assets/imgs/favicon.ico'}`} />
+        <link rel="shortcut icon" href={`/${selectedMode === 'dark' ? 'assets/imgs/favicon.ico' : 'light/assets/imgs/favicon.ico'}`} />
+        <link rel="stylesheet" type="text/css" href={`/${selectedMode === 'dark' ? 'assets/css/plugins.css' : 'light/assets/css/plugins.css'}`} />
+        <link rel="stylesheet" type="text/css" href={`/${selectedMode === 'dark' ? 'assets/css/style.css' : 'light/assets/css/style.css'}`} />
       </Helmet>
       <Cursor />
       <ContactUs />

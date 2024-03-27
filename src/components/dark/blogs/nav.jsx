@@ -1,13 +1,25 @@
-import React from 'react';
-
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { socialHandles, email, setMode, mode } from "../../../store/userSlice";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { FaRegSun } from "react-icons/fa";
 function Nav() {
+  const selectedMode = useSelector(mode);
+  const dispatch = useDispatch();
   return (
     <div className="nav-top pt-30 pb-30">
       <div className="container">
         <div className="row">
           <div className="col-md-4 valign">
-            <a href="/dark" className="logo icon-img-60">
-              <img src="/assets/imgs/logo-light.png" alt="" />
+            <a href="#0" className="logo icon-img-60">
+              <img
+                src={
+                  selectedMode === "light"
+                    ? "/assets/imgs/logo-dark.png"
+                    : "/assets/imgs/logo-light.png"
+                }
+                alt=""
+              />
             </a>
           </div>
           <div className="col-md-8">
@@ -53,6 +65,24 @@ function Nav() {
                     <li className="nav-item">
                       <a href="/dark#blog">
                         <span>Projects</span>
+                      </a>
+                    </li>
+                    <li
+                      className="social text-center"
+                      style={{ marginLeft: "10px" }}
+                    >
+                      <a
+                        onClick={() =>
+                          dispatch(
+                            setMode(selectedMode === "light" ? "dark" : "light")
+                          )
+                        }
+                      >
+                        {selectedMode === "light" ? (
+                          <FaRegSun />
+                        ) : (
+                          <BsFillMoonStarsFill />
+                        )}
                       </a>
                     </li>
                   </ul>
